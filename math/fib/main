@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ ! -e a.out ]; then
+	gcc fib.c
+fi
+./a.out $1
+./fib.py $1

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+Uusage () {
+echo "
+	Usage: q [command]
+	[command]:
+		py    (run python version)
+		c     (run c version)
+		cc    (compile c version)
+		clean (removes .pyc files, .o files, and binaries)
+	"
+}
+
+for i in $*; do
+	case $i in
+		py)
+			python py/main.py;;
+		orig)
+			python py/orig.py;;
+		c)
+			cd c
+			./qgame;;
+		cc)
+			cd c
+			make;;
+		clean)
+			rm py/*.pyc
+			cd c
+			make clean;;
+		help)
+			Uusage;;
+		*)
+			Uusage;;
+		esac
+done
